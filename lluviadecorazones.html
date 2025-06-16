@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lluvia de TE AMO</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    .floating-text {
+      position: absolute;
+      color: #ff3366;
+      font-size: 22px;
+      font-weight: bold;
+      pointer-events: none;
+      animation: floatUp 1.8s ease-out forwards;
+      text-shadow: 0 0 6px white;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+
+    /* Corazón flotante */
+    .corazon-enlace {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: transparent;
+      z-index: 10;
+      cursor: pointer;
+      animation: latir 1.2s infinite;
+    }
+
+    .corazon-enlace::before,
+    .corazon-enlace::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 48px;
+      background: #ff3366;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: bottom right;
+    }
+
+    .corazon-enlace::after {
+      left: 30px;
+      transform: rotate(45deg);
+      transform-origin: bottom left;
+    }
+
+    @keyframes latir {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- En
